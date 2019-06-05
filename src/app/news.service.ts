@@ -10,7 +10,10 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  getNews() {
+  getNews(page) {
+    if (page) {
+      return this.http.get(`https://newsapi.org/v2/top-headlines?page=${page}&language=es&apiKey=${this.apiKey}`);
+    }
     return this.http.get(`https://newsapi.org/v2/top-headlines?language=es&apiKey=${this.apiKey}`);
   }
 }

@@ -1,6 +1,10 @@
 <div class="news">
   <div class="pagination">
-    Pages
+    <ul>
+      <li *ngFor="let page of pages$">
+        <button [disabled]="page == currentPage$" (click)="goToPage(page)">{{ page }}</button>
+      </li>
+    </ul>
   </div>
   <div class="articles-container">
     <div class="article" *ngFor="let article of articles$">
