@@ -5,6 +5,11 @@
   <div class="articles-container">
     <div class="article" *ngFor="let article of articles$">
       <div class="article-info">
+        <div>
+          <a href="{{article.url}}" target="_blank">
+            <img src="{{article.urlToImage}}" alt="{{article.source.name}}"/>
+          </a>
+        </div>
         <div class="article-details">
           <ul>
             <li><strong>{{ article.title }}</strong></li>
