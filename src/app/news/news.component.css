@@ -1,0 +1,13 @@
+.news {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.articles-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
