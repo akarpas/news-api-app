@@ -48,11 +48,25 @@ ul {
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
+  padding-bottom: 20px;
   width: 100%;
 }
 
 .article-details > ul {
   line-height: 1.5;
+}
+
+.article-details > a {
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-left: 10px;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  width: 100px;
 }
 
 .article-image {
