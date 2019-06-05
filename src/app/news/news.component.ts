@@ -32,6 +32,16 @@ export class NewsComponent implements OnInit {
     );
   }
 
+  goToPage(page) {
+    this.currentPage$ = page;
+    this.news.getNews(page).subscribe(
+      data => {
+        const sorted = this.sortArticles(data);
+        this.articles$ = sorted;
+      }
+    )
+  }
+
   sortArticles(data) {
     return data['articles'].sort((a, b)=> {
       return <any>new Date(b.publishedAt) - <any>new Date(a.publishedAt);
