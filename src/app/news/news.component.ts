@@ -18,9 +18,15 @@ export class NewsComponent implements OnInit {
   ngOnInit() {
     this.news.getNews().subscribe(
       data => {
-        this.articles$ = data['articles'];
+        const sortedArticles = this.sortArticles(data);
+        this.articles$ = sortedArticles;
       }
     );
   }
 
+  sortArticles(data) {
+    return data['articles'].sort((a, b)=> {
+      return <any>new Date(b.publishedAt) - <any>new Date(a.publishedAt);
+    });
+  }
 }
