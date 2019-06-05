@@ -15,6 +15,7 @@ export class NewsComponent implements OnInit {
   currentPage$: Number;
   pages$: Object;
   status$: string;
+  httpError$: Boolean;
   totalResults$: Number;
 
   constructor(
@@ -32,6 +33,7 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.httpError$ = false;
     this.currentPage$ = 1;
     this.news.getNews(null).subscribe(
       data => {
@@ -42,6 +44,10 @@ export class NewsComponent implements OnInit {
         this.pages$ = Array.from(
           { length: Math.ceil(<any>this.totalResults$/20) }, (v, k) => k + 1
         );
+        this.spinner.hide();
+      },
+      error => {
+        this.httpError$ = true;
         this.spinner.hide();
       }
     );
@@ -54,6 +60,10 @@ export class NewsComponent implements OnInit {
       data => {
         const sorted = this.sortArticles(data);
         this.articles$ = sorted;
+        this.spinner.hide();
+      },
+      error => {
+        this.httpError$ = true;
         this.spinner.hide();
       }
     )
