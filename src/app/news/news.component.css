@@ -85,3 +85,17 @@ ul {
   object-fit: cover;
   width: 100%;
 }
+
+.pagination > ul {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  background-color: black;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  padding-left: 0;
+}
