@@ -3,6 +3,18 @@
     Pages
   </div>
   <div class="articles-container">
-    Articles
+    <div class="article" *ngFor="let article of articles$">
+      <div class="article-info">
+        <div class="article-details">
+          <ul>
+            <li><strong>{{ article.title }}</strong></li>
+            <li>{{ article.description ? article.description : "No Description" }}</li>
+            <li><strong>Source: </strong>{{ article.source.name }}</li>
+            <li>{{ article.publishedAt | date: 'medium' }}</li>
+          </ul>
+          <a href="{{article.url}}" target="_blank">View</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
