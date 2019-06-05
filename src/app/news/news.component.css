@@ -35,6 +35,8 @@ button:disabled {
   align-items: center;
   background-color: lightgrey;
   border: 1px solid rgba(0,0,0,0.2);
+  -webkit-box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.3);
   box-shadow: 3px 3px 6px 0px  rgba(0,0,0,0.3);
   display: flex;
   flex-flow: row;
