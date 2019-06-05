@@ -102,6 +102,14 @@ button:disabled {
   width: 100%;
 }
 
+.http-error {
+  width: 75%;
+}
+
+.http-error > p {
+  text-align: center;
+}
+
 .pagination > ul {
   display: flex;
   flex-flow: row;
