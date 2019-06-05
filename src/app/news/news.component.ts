@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../news.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ChangeDetectorRef } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -15,7 +17,19 @@ export class NewsComponent implements OnInit {
   status$: string;
   totalResults$: Number;
 
-  constructor(private news: NewsService) { }
+  constructor(
+    private news: NewsService,
+    private spinner: NgxSpinnerService,
+    private cdRef: ChangeDetectorRef
+  ) { }
+
+  ngAfterViewInit() {
+    this.spinner.show();
+  }
+
+  ngAfterViewChecked(){
+    this.cdRef.detectChanges();
+  }
 
   ngOnInit() {
     this.currentPage$ = 1;
@@ -28,16 +42,19 @@ export class NewsComponent implements OnInit {
         this.pages$ = Array.from(
           { length: Math.ceil(<any>this.totalResults$/20) }, (v, k) => k + 1
         );
+        this.spinner.hide();
       }
     );
   }
 
   goToPage(page) {
+    this.spinner.show();
     this.currentPage$ = page;
     this.news.getNews(page).subscribe(
       data => {
         const sorted = this.sortArticles(data);
         this.articles$ = sorted;
+        this.spinner.hide();
       }
     )
   }
