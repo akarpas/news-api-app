@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsService } from '../news.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-news',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsComponent implements OnInit {
 
-  constructor() { }
+  articles$: Object;
+  totalResults$: Number;
+  status$: string;
+
+  constructor(private news: NewsService) { }
 
   ngOnInit() {
+    this.news.getNews().subscribe(
+      data => {
+        this.articles$ = data['articles'];
+      }
+    );
   }
 
 }
