@@ -12,6 +12,11 @@
     color="#fff"
     type="ball-scale-multiple"
   ></ngx-spinner>
+  <div class="http-error" *ngIf="httpError$">
+    <p>
+      Oops, something went wrong with the server. Please try again by refreshing your browser.
+    </p>
+  </div>
   <div class="articles-container">
     <div class="article" *ngFor="let article of articles$">
       <div class="article-info">

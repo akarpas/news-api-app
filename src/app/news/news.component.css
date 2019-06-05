@@ -21,8 +21,8 @@ button:disabled {
   align-items: center;
   display: flex;
   flex-flow: column;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  margin-bottom: 75px;
+  margin-top: 75px;
 }
 
 .articles-container {
@@ -100,6 +100,14 @@ button:disabled {
   height: 150px;
   object-fit: cover;
   width: 100%;
+}
+
+.http-error {
+  width: 75%;
+}
+
+.http-error > p {
+  text-align: center;
 }
 
 .pagination > ul {
