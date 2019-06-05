@@ -10,16 +10,24 @@ import { Observable } from 'rxjs';
 export class NewsComponent implements OnInit {
 
   articles$: Object;
-  totalResults$: Number;
+  currentPage$: Number;
+  pages$: Object;
   status$: string;
+  totalResults$: Number;
 
   constructor(private news: NewsService) { }
 
   ngOnInit() {
-    this.news.getNews().subscribe(
+    this.currentPage$ = 1;
+    this.news.getNews(null).subscribe(
       data => {
         const sortedArticles = this.sortArticles(data);
         this.articles$ = sortedArticles;
+        this.status$ = data['status'];
+        this.totalResults$ = data['totalResults'];
+        this.pages$ = Array.from(
+          { length: Math.ceil(<any>this.totalResults$/20) }, (v, k) => k + 1
+        );
       }
     );
   }
