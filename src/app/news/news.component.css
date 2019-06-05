@@ -113,3 +113,24 @@ button:disabled {
   margin: 0;
   padding-left: 0;
 }
+
+@media screen and (min-width: 700px) {
+  .article-info {
+    flex-flow: row;
+  }
+
+  .article-image {
+    max-width: 20%;
+    min-width: 20%;
+  }
+
+  .article-image img {
+    border-radius: 5px 0 0 5px;
+    height: 250px;
+  }
+
+  .article-details {
+    border-radius: 0 5px 5px 0;
+    width: 80%;
+  }
+}
