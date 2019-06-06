@@ -124,6 +124,10 @@ button:disabled {
   padding-left: 0;
 }
 
+.spinner ::ng-deep .overlay{
+  position: fixed !important;
+}
+
 @media screen and (min-width: 700px) {
   .article-info {
     flex-flow: row;
